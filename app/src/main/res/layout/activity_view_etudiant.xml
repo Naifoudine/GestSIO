@@ -1,0 +1,229 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginTop="16dp"
+    tools:context=".ViewEtudiantActivity">
+
+    <TextView
+        android:id="@+id/titre"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:gravity="clip_horizontal|top"
+        android:text="Consultation étudiant"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <TextView
+        android:id="@+id/nom"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="top|center_horizontal"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="20dp"
+        android:text="Nom :"
+        android:textSize="18sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/titre"
+        app:layout_goneMarginTop="40dp" />
+
+    <TextView
+        android:id="@+id/nomEtudiant"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="top|center_horizontal"
+        android:layout_marginStart="8dp"
+        android:text="Nom de l'étudiant"
+        android:textSize="18sp"
+        app:layout_constraintBaseline_toBaselineOf="@id/nom"
+        app:layout_constraintStart_toEndOf="@id/nom"
+        app:layout_goneMarginTop="40dp" />
+
+
+    <TextView
+        android:id="@+id/prenom"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="top|center_horizontal"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="40dp"
+        android:text="Prénom :"
+        android:textSize="18sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/titre"
+        app:layout_goneMarginTop="40dp" />
+
+    <TextView
+        android:id="@+id/prenomEtudiant"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="top|center_horizontal"
+        android:layout_marginStart="8dp"
+        android:text="Prénom de l'étudiant"
+        android:textSize="18sp"
+        app:layout_constraintBaseline_toBaselineOf="@id/prenom"
+        app:layout_constraintStart_toEndOf="@id/prenom"
+        app:layout_goneMarginTop="40dp" />
+
+
+    <TextView
+        android:id="@+id/dateDeNaissance"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="top|center_horizontal"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="60dp"
+        android:text="Date de naissance :"
+        android:textSize="18sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/titre"
+        app:layout_goneMarginTop="40dp" />
+
+    <TextView
+        android:id="@+id/dateDeNaissanceEtudiant"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="top|center_horizontal"
+        android:layout_marginStart="8dp"
+        android:text="JJ/MM/AAAA"
+        android:textSize="18sp"
+        app:layout_constraintBaseline_toBaselineOf="@id/dateDeNaissance"
+        app:layout_constraintStart_toEndOf="@id/dateDeNaissance"
+        app:layout_goneMarginTop="40dp" />
+
+
+    <TextView
+        android:id="@+id/adresse"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="top|center_horizontal"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="80dp"
+        android:text="Adresse :"
+        android:textSize="18sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/titre"
+        app:layout_goneMarginTop="40dp" />
+
+    <TextView
+        android:id="@+id/adresseEtudiant"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="top|center_horizontal"
+        android:layout_marginStart="8dp"
+        android:text="Adresse de l'etudiant"
+        android:textSize="18sp"
+        app:layout_constraintBaseline_toBaselineOf="@id/adresse"
+        app:layout_constraintStart_toEndOf="@id/adresse"
+        app:layout_goneMarginTop="40dp" />
+
+
+    <TextView
+        android:id="@+id/codePostal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="top|center_horizontal"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="100dp"
+        android:text="Code postal:"
+        android:textSize="18sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/titre"
+        app:layout_goneMarginTop="40dp" />
+
+    <TextView
+        android:id="@+id/codePostalEtudiant"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="top|center_horizontal"
+        android:layout_marginStart="8dp"
+        android:text="Son code postale"
+        android:textSize="18sp"
+        app:layout_constraintBaseline_toBaselineOf="@id/codePostal"
+        app:layout_constraintStart_toEndOf="@id/codePostal"
+        app:layout_goneMarginTop="40dp" />
+
+
+    <TextView
+        android:id="@+id/ville"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="top|center_horizontal"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="120dp"
+        android:text="Ville :"
+        android:textSize="18sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/titre"
+        app:layout_goneMarginTop="40dp" />
+
+    <TextView
+        android:id="@+id/villeEtudiant"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="top|center_horizontal"
+        android:layout_marginStart="8dp"
+        android:text="Ville de l'étudiant"
+        android:textSize="18sp"
+        app:layout_constraintBaseline_toBaselineOf="@id/ville"
+        app:layout_constraintStart_toEndOf="@id/ville"
+        app:layout_goneMarginTop="40dp" />
+
+    <TextView
+        android:id="@+id/numéroDeTéléphone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="top|center_horizontal"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="140dp"
+        android:text="Numéro de téléphone :"
+        android:textSize="18sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/titre"
+        app:layout_goneMarginTop="40dp" />
+
+    <TextView
+        android:id="@+id/numéroDeTéléphoneEtudiant"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="top|center_horizontal"
+        android:layout_marginStart="8dp"
+        android:text="Num de l'étudiant"
+        android:textSize="18sp"
+        app:layout_constraintBaseline_toBaselineOf="@id/numéroDeTéléphone"
+        app:layout_constraintStart_toEndOf="@id/numéroDeTéléphone"
+        app:layout_goneMarginTop="40dp" />
+
+
+    <TextView
+        android:id="@+id/courriel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="top|center_horizontal"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="160dp"
+        android:text="Courriel :"
+        android:textSize="18sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/titre"
+        app:layout_goneMarginTop="40dp" />
+
+    <TextView
+        android:id="@+id/courrielEtudiant"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="top|center_horizontal"
+        android:layout_marginStart="8dp"
+        android:text="Courriel de l'étudiant"
+        android:textSize="18sp"
+        app:layout_constraintBaseline_toBaselineOf="@id/courriel"
+        app:layout_constraintStart_toEndOf="@id/courriel"
+        app:layout_goneMarginTop="40dp" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+
