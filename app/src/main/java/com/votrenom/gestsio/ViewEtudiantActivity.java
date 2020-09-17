@@ -4,7 +4,6 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 import android.widget.TextView;
-import android.widget.Toast;
 
 public class ViewEtudiantActivity extends AppCompatActivity {
 
@@ -16,6 +15,7 @@ public class ViewEtudiantActivity extends AppCompatActivity {
     private TextView txtVilleEtudiant;
     private TextView txtNuméroDeTéléphoneEtudiant;
     private TextView txtCourrielEtudiant;
+    private TextView txtObservation;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,12 +28,13 @@ public class ViewEtudiantActivity extends AppCompatActivity {
         //txtNomEtudiant.setText("DUPOND");
 
         txtPrenomEtudiant = (TextView)findViewById(R.id.prenomEtudiant);
-        txtDateDeNaissanceEtudiant = (TextView)findViewById(R.id.dateDeNaissanceEtudiant);
+        txtDateDeNaissanceEtudiant = (TextView)findViewById(R.id.NaissanceEtudiant);
         txtAdresseEtudiant = (TextView)findViewById(R.id.adresseEtudiant);
         txtCodePostalEtudiant = (TextView)findViewById(R.id.codePostalEtudiant);
         txtVilleEtudiant = (TextView)findViewById(R.id.villeEtudiant);
         txtNuméroDeTéléphoneEtudiant = (TextView)findViewById(R.id.numéroDeTéléphoneEtudiant);
         txtCourrielEtudiant = (TextView)findViewById(R.id.courrielEtudiant);
+        txtObservation = (TextView)findViewById(R.id.observationsEtudiant);
 
 
 
@@ -51,6 +52,7 @@ public class ViewEtudiantActivity extends AppCompatActivity {
         txtVilleEtudiant.setText("Paris");
         txtNuméroDeTéléphoneEtudiant.setText("+33 1 23 45 67 89");
         txtCourrielEtudiant.setText("DURANDdeLutèce@gmail.com");
+        txtObservation.setText("Excellent !");
 
     }
 
