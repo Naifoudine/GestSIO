@@ -39,7 +39,7 @@ public class AddEtudiantActivity extends AppCompatActivity {
         editObservation = (EditText)findViewById(R.id.observationsEtudiant);
 
         btnOk = (Button)findViewById(R.id.addEtudiantBtnOk);
-        
+
         if (savedInstanceState!=null) {
             compteur = savedInstanceState.getInt("compteur");
         }
