@@ -1,275 +1,289 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
 
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".AddEtudiantActivity">
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".AddEtudiantActivity">
 
-    <TextView
-        android:id="@+id/titre"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:gravity="clip_horizontal|top"
-        android:text="@string/saisie_nouvel_etudiant"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        <TextView
+            android:id="@+id/titre"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:gravity="clip_horizontal|top"
+            android:text="@string/saisie_nouvel_etudiant"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
 
-    <TextView
-        android:id="@+id/nom"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="top|center_horizontal"
-        android:layout_marginStart="5dp"
-        android:layout_marginTop="20dp"
-        android:text="@string/nom"
-        android:textSize="18sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/titre"
-        app:layout_goneMarginTop="40dp" />
+        <TextView
+            android:id="@+id/nom"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="top|center_horizontal"
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="20dp"
+            android:text="@string/nom"
+            android:textSize="18sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/titre"
+            app:layout_goneMarginTop="40dp" />
 
-    <EditText
-        android:id="@+id/nomEtudiant"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="top|center_horizontal"
-        android:layout_marginStart="8dp"
-        android:inputType="textCapCharacters|textPersonName"
-        android:text="@string/nom_de_l_etudiant"
-        android:textSize="18sp"
-        app:layout_constraintBaseline_toBaselineOf="@id/nom"
-        app:layout_constraintStart_toEndOf="@id/nom"
-        app:layout_goneMarginTop="40dp" />
-
-
-    <TextView
-        android:id="@+id/prenom"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="top|center_horizontal"
-        android:layout_marginStart="5dp"
-        android:layout_marginTop="20dp"
-        android:text="@string/prenom"
-        android:textSize="18sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/nom"
-        app:layout_goneMarginTop="40dp" />
-
-    <EditText
-        android:id="@+id/prenomEtudiant"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="top|center_horizontal"
-        android:layout_marginStart="8dp"
-        android:inputType="textCapWords|textPersonName"
-        android:text="@string/prenom_de_l_etudiant"
-        android:textSize="18sp"
-        app:layout_constraintBaseline_toBaselineOf="@id/prenom"
-        app:layout_constraintStart_toEndOf="@id/prenom"
-        app:layout_goneMarginTop="40dp" />
-
-    <TextView
-        android:id="@+id/naissance"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="top|center_horizontal"
-        android:layout_marginStart="5dp"
-        android:layout_marginTop="20dp"
-        android:text="@string/date_de_naissance"
-        android:textSize="18sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/prenom"
-        app:layout_goneMarginTop="40dp" />
-
-    <EditText
-        android:id="@+id/naissanceEtudiant"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="top|center_horizontal"
-        android:layout_marginStart="8dp"
-        android:inputType="date"
-        android:text="@string/jj_mm_aaaa"
-        android:textSize="18sp"
-        app:layout_constraintBaseline_toBaselineOf="@id/naissance"
-        app:layout_constraintStart_toEndOf="@id/naissance"
-        app:layout_goneMarginTop="40dp" />
+        <EditText
+            android:id="@+id/nomEtudiant"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="top|center_horizontal"
+            android:layout_marginStart="8dp"
+            android:inputType="textCapCharacters|textPersonName"
+            android:text="@string/nom_de_l_etudiant"
+            android:textSize="18sp"
+            app:layout_constraintBaseline_toBaselineOf="@id/nom"
+            app:layout_constraintStart_toEndOf="@id/nom"
+            app:layout_goneMarginTop="40dp"
+            android:autofillHints="@string/nom_de_l_etudiant" />
 
 
-    <TextView
-        android:id="@+id/adresse"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="top|center_horizontal"
-        android:layout_marginStart="5dp"
-        android:layout_marginTop="20dp"
-        android:text="@string/adresse"
-        android:textSize="18sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/naissance"
-        app:layout_goneMarginTop="40dp" />
+        <TextView
+            android:id="@+id/prenom"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="top|center_horizontal"
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="20dp"
+            android:text="@string/prenom"
+            android:textSize="18sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/nom"
+            app:layout_goneMarginTop="40dp" />
 
-    <EditText
-        android:id="@+id/adresseEtudiant"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="top|center_horizontal"
-        android:layout_marginStart="8dp"
-        android:inputType="textCapCharacters"
-        android:text="@string/adresse_de_l_etudiant"
-        android:textSize="18sp"
-        app:layout_constraintBaseline_toBaselineOf="@id/adresse"
-        app:layout_constraintStart_toEndOf="@id/adresse"
-        app:layout_goneMarginTop="40dp" />
+        <EditText
+            android:id="@+id/prenomEtudiant"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="top|center_horizontal"
+            android:layout_marginStart="8dp"
+            android:inputType="textCapWords|textPersonName"
+            android:text="@string/prenom_de_l_etudiant"
+            android:textSize="18sp"
+            app:layout_constraintBaseline_toBaselineOf="@id/prenom"
+            app:layout_constraintStart_toEndOf="@id/prenom"
+            app:layout_goneMarginTop="40dp"
+            />
 
+        <TextView
+            android:id="@+id/naissance"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="top|center_horizontal"
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="20dp"
+            android:text="@string/date_de_naissance"
+            android:textSize="18sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/prenom"
+            app:layout_goneMarginTop="40dp" />
 
-    <TextView
-        android:id="@+id/codePostal"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="top|center_horizontal"
-        android:layout_marginStart="5dp"
-        android:layout_marginTop="20dp"
-        android:text="@string/code_postal"
-        android:textSize="18sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/adresse"
-        app:layout_goneMarginTop="40dp" />
-
-    <EditText
-        android:id="@+id/codePostalEtudiant"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="top|center_horizontal"
-        android:layout_marginStart="8dp"
-        android:inputType="number"
-        android:text="@string/son_code_postale"
-        android:textSize="18sp"
-        app:layout_constraintBaseline_toBaselineOf="@id/codePostal"
-        app:layout_constraintStart_toEndOf="@id/codePostal"
-        app:layout_goneMarginTop="40dp" />
-
-
-    <TextView
-        android:id="@+id/ville"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="top|center_horizontal"
-        android:layout_marginStart="5dp"
-        android:layout_marginTop="20dp"
-        android:text="@string/ville"
-        android:textSize="18sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/codePostal"
-        app:layout_goneMarginTop="40dp" />
-
-    <EditText
-        android:id="@+id/villeEtudiant"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="top|center_horizontal"
-        android:layout_marginStart="8dp"
-        android:inputType="textCapCharacters"
-        android:text="@string/ville_de_l_etudiant"
-        android:textSize="18sp"
-        app:layout_constraintBaseline_toBaselineOf="@id/ville"
-        app:layout_constraintStart_toEndOf="@id/ville"
-        app:layout_goneMarginTop="40dp" />
+        <EditText
+            android:id="@+id/naissanceEtudiant"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="top|center_horizontal"
+            android:layout_marginStart="8dp"
+            android:inputType="date"
+            android:text="@string/jj_mm_aaaa"
+            android:textSize="18sp"
+            app:layout_constraintBaseline_toBaselineOf="@id/naissance"
+            app:layout_constraintStart_toEndOf="@id/naissance"
+            app:layout_goneMarginTop="40dp" />
 
 
-    <TextView
-        android:id="@+id/numéroDeTéléphone"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="top|center_horizontal"
-        android:layout_marginStart="5dp"
-        android:layout_marginTop="20dp"
-        android:text="@string/numero_de_telephone"
-        android:textSize="18sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ville"
-        app:layout_goneMarginTop="40dp" />
+        <TextView
+            android:id="@+id/adresse"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="top|center_horizontal"
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="20dp"
+            android:text="@string/adresse"
+            android:textSize="18sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/naissance"
+            app:layout_goneMarginTop="40dp" />
 
-    <EditText
-        android:id="@+id/numéroDeTéléphoneEtudiant"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="top|center_horizontal"
-        android:layout_marginStart="8dp"
-        android:inputType="phone"
-        android:text="@string/num_de_l_etudiant"
-        android:textSize="18sp"
-        app:layout_constraintBaseline_toBaselineOf="@id/numéroDeTéléphone"
-        app:layout_constraintStart_toEndOf="@id/numéroDeTéléphone"
-        app:layout_goneMarginTop="40dp" />
-
-
-    <TextView
-        android:id="@+id/courriel"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="top|center_horizontal"
-        android:layout_marginStart="5dp"
-        android:layout_marginTop="20dp"
-        android:text="@string/courriel"
-        android:textSize="18sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/numéroDeTéléphone"
-        app:layout_goneMarginTop="40dp" />
-
-    <EditText
-        android:id="@+id/courrielEtudiant"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="top|center_horizontal"
-        android:layout_marginStart="8dp"
-        android:inputType="textEmailAddress"
-        android:text="@string/courriel_de_l_etudiant"
-        android:textSize="18sp"
-        app:layout_constraintBaseline_toBaselineOf="@id/courriel"
-        app:layout_constraintStart_toEndOf="@id/courriel"
-        app:layout_goneMarginTop="40dp" />
+        <EditText
+            android:id="@+id/adresseEtudiant"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="top|center_horizontal"
+            android:layout_marginStart="8dp"
+            android:inputType="textCapCharacters"
+            android:text="@string/adresse_de_l_etudiant"
+            android:textSize="18sp"
+            app:layout_constraintBaseline_toBaselineOf="@id/adresse"
+            app:layout_constraintStart_toEndOf="@id/adresse"
+            app:layout_goneMarginTop="40dp" />
 
 
-    <TextView
-        android:id="@+id/observations"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="top|center_horizontal"
-        android:layout_marginStart="5dp"
-        android:layout_marginTop="20dp"
-        android:text="@string/observations"
-        android:textSize="18sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/courriel"
-        app:layout_goneMarginTop="40dp" />
+        <TextView
+            android:id="@+id/codePostal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="top|center_horizontal"
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="20dp"
+            android:text="@string/code_postal"
+            android:textSize="18sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/adresse"
+            app:layout_goneMarginTop="40dp" />
 
-    <EditText
-        android:id="@+id/observationsEtudiant"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="top|center_horizontal"
-        android:layout_marginStart="8dp"
-        android:inputType="textCapSentences|textMultiLine"
-        android:text="@string/commentaires_sur_l_etudiant"
-        android:textSize="18sp"
-        app:layout_constraintBaseline_toBaselineOf="@id/observations"
-        app:layout_constraintStart_toEndOf="@id/observations"
-        app:layout_goneMarginTop="40dp"
-        />
+        <EditText
+            android:id="@+id/codePostalEtudiant"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="top|center_horizontal"
+            android:layout_marginStart="8dp"
+            android:inputType="number"
+            android:text="@string/son_code_postale"
+            android:textSize="18sp"
+            app:layout_constraintBaseline_toBaselineOf="@id/codePostal"
+            app:layout_constraintStart_toEndOf="@id/codePostal"
+            app:layout_goneMarginTop="40dp" />
 
+
+        <TextView
+            android:id="@+id/ville"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="top|center_horizontal"
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="20dp"
+            android:text="@string/ville"
+            android:textSize="18sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/codePostal"
+            app:layout_goneMarginTop="40dp" />
+
+        <EditText
+            android:id="@+id/villeEtudiant"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="top|center_horizontal"
+            android:layout_marginStart="8dp"
+            android:inputType="textCapCharacters"
+            android:text="@string/ville_de_l_etudiant"
+            android:textSize="18sp"
+            app:layout_constraintBaseline_toBaselineOf="@id/ville"
+            app:layout_constraintStart_toEndOf="@id/ville"
+            app:layout_goneMarginTop="40dp" />
+
+
+        <TextView
+            android:id="@+id/numéroDeTéléphone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="top|center_horizontal"
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="20dp"
+            android:text="@string/numero_de_telephone"
+            android:textSize="18sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/ville"
+            app:layout_goneMarginTop="40dp" />
+
+        <EditText
+            android:id="@+id/numéroDeTéléphoneEtudiant"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="top|center_horizontal"
+            android:layout_marginStart="8dp"
+            android:inputType="phone"
+            android:text="@string/num_de_l_etudiant"
+            android:textSize="18sp"
+            app:layout_constraintBaseline_toBaselineOf="@id/numéroDeTéléphone"
+            app:layout_constraintStart_toEndOf="@id/numéroDeTéléphone"
+            app:layout_goneMarginTop="40dp" />
+
+
+        <TextView
+            android:id="@+id/courriel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="top|center_horizontal"
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="20dp"
+            android:text="@string/courriel"
+            android:textSize="18sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/numéroDeTéléphone"
+            app:layout_goneMarginTop="40dp" />
+
+        <EditText
+            android:id="@+id/courrielEtudiant"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="top|center_horizontal"
+            android:layout_marginStart="8dp"
+            android:inputType="textEmailAddress"
+            android:text="@string/courriel_de_l_etudiant"
+            android:textSize="18sp"
+            app:layout_constraintBaseline_toBaselineOf="@id/courriel"
+            app:layout_constraintStart_toEndOf="@id/courriel"
+            app:layout_goneMarginTop="40dp" />
+
+
+        <TextView
+            android:id="@+id/observations"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="top|center_horizontal"
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="20dp"
+            android:text="@string/observations"
+            android:textSize="18sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/courriel"
+            app:layout_goneMarginTop="40dp" />
+
+        <EditText
+            android:id="@+id/observationsEtudiant"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="top|center_horizontal"
+            android:layout_marginStart="8dp"
+            android:inputType="textCapSentences|textMultiLine"
+            android:text="@string/commentaires_sur_l_etudiant"
+            android:textSize="18sp"
+            app:layout_constraintBaseline_toBaselineOf="@id/observations"
+            app:layout_constraintStart_toEndOf="@id/observations"
+            app:layout_goneMarginTop="40dp" />
 
 
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <Button
+            android:id="@+id/addEtudiantBtnOk"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="top|center_horizontal"
+            android:layout_marginTop="20dp"
+            android:background="#FFE900"
+            android:text="@string/valider"
+            android:onClick="onCreate"
+            android:textSize="18sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/observations"
+            app:layout_goneMarginTop="40dp"
+            />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>

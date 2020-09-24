@@ -5,7 +5,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
 
 
 public class AddEtudiantActivity extends AppCompatActivity {
@@ -30,6 +29,7 @@ public class AddEtudiantActivity extends AppCompatActivity {
 
         // Obtention des références sur les composants
         editNom = (EditText)findViewById(R.id.nomEtudiant);
+        editPrenomEtudiant = (EditText)findViewById(R.id.nomEtudiant);
         editDateDeNaissanceEtudiant = (EditText)findViewById(R.id.naissanceEtudiant);
         editAdresseEtudiant = (EditText)findViewById(R.id.adresseEtudiant);
         editCodePostalEtudiant = (EditText)findViewById(R.id.codePostalEtudiant);
@@ -39,18 +39,17 @@ public class AddEtudiantActivity extends AppCompatActivity {
         editObservation = (EditText)findViewById(R.id.observationsEtudiant);
 
         btnOk = (Button)findViewById(R.id.addEtudiantBtnOk);
-
-
-        /*if (savedInstanceState!=null) {
+        
+        if (savedInstanceState!=null) {
             compteur = savedInstanceState.getInt("compteur");
-        }*/
+        }
     }
-    /*@Override
+    @Override
     protected void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
 
         outState.putInt("compteur", compteur);
 
 
-    }*/
+    }
 }

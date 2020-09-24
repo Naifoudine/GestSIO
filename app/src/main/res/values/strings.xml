@@ -22,4 +22,5 @@
     <string name="observations">Observations :</string>
     <string name="commentaires_sur_l_etudiant">Commentaire(s) sur l\'étudiant</string>
     <string name="saisie_nouvel_etudiant">Saisie d\'un nouvel étudiant</string>
+    <string name="valider">Valider</string>
 </resources>
