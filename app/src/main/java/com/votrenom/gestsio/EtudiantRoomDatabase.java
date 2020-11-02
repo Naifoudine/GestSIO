@@ -2,9 +2,11 @@ package com.votrenom.gestsio;
 
 import android.content.Context;
 
+import androidx.annotation.NonNull;
 import androidx.room.Database;
 import androidx.room.Room;
 import androidx.room.RoomDatabase;
+import androidx.sqlite.db.SupportSQLiteDatabase;
 
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
@@ -44,10 +46,41 @@ public abstract class EtudiantRoomDatabase extends RoomDatabase {
                      */
                     INSTANCE = Room.databaseBuilder(context.getApplicationContext(),
                             EtudiantRoomDatabase.class, "etudiant_database")
+                            .addCallback(sRoomDatabaseCallback)
                             .build();
                 }
             }
         }
         return INSTANCE;
     }
+
+    /**
+     * 12.1. Creation du callback pour le remplissage de la base
+     */
+    private static Callback sRoomDatabaseCallback = new Callback() {
+        @Override
+        //public void onOpen(@NonNull SupportSQLiteDatabase db) {
+        public void onCreate(@NonNull SupportSQLiteDatabase db) {
+            super.onCreate(db);
+
+            // If you want to keep data through app restarts,
+            // comment out the following block
+
+            databaseWriteExecutor.execute(() -> {
+                // Populate the database in the background.
+                // If you want to start with more words, just add them.
+                EtudiantDao dao = INSTANCE.etudiantDao();
+
+                //Décommentez la ligne ci dessous si vous souhaitez supprimer le contenu de la base à chaque lancement.
+                //dao.deleteAll();
+
+                //permet d'insérer un étudiant en exemple :
+                Etudiant etudiant = new Etudiant();
+                etudiant.setNomEtudiant("MOHAMMED");
+                etudiant.setPrenomEtudiant("Ali");
+                dao.insert(etudiant);
+
+            });
+        }
+    };
 }
