@@ -23,5 +23,11 @@
     <string name="commentaires_sur_l_etudiant">Commentaire(s) sur l\'étudiant</string>
     <string name="saisie_nouvel_etudiant">Saisie d\'un nouvel étudiant</string>
     <string name="valider">Valider</string>
-    <string name="add_student" />
+    <string name="action_settings">Options</string>
+    <string name="hint_nom">Nom…</string>
+    <string name="hint_prenom">Prénom…</string>
+    <string name="button_save">Sauvegarder</string>
+    <string name="not_saved">Etudiant non sauvegardé</string>
+    <string name="saved">Etudiant sauvegardé.</string>
+    <string name="add_student">Ajout étudiant</string>
 </resources>
