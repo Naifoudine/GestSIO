@@ -13,6 +13,13 @@ public class NewEtudiantActivity extends AppCompatActivity {
 
     private EditText mEditNomView;
     private EditText mEditPrenomView;
+    private EditText mEditNaissanceView;
+    private EditText mEditAdresseView;
+    private EditText mEditCodePostalView;
+    private EditText mEditVilleView;
+    private EditText mEditPhoneView;
+    private EditText mEditCourrielView;
+    private EditText mEditObservationsView;
     private Etudiant etudiant;
 
 
@@ -22,17 +29,33 @@ public class NewEtudiantActivity extends AppCompatActivity {
         setContentView(R.layout.activity_new_etudiant);
         mEditNomView = findViewById(R.id.edit_nom);
         mEditPrenomView = findViewById(R.id.edit_prenom);
+        mEditNaissanceView = findViewById(R.id.edit_naissanceEtudiant);
+        mEditAdresseView = findViewById(R.id.edit_adresseEtudiant);
+        mEditCodePostalView = findViewById(R.id.edit_codePostalEtudiant);
+        mEditVilleView= findViewById(R.id.edit_villeEtudiant);
+        mEditPhoneView = findViewById(R.id.edit_numéroDeTéléphoneEtudiant);
+        mEditCourrielView = findViewById(R.id.edit_courrielEtudiant);
+        mEditObservationsView = findViewById(R.id.edit_observationsEtudiant);
+
 
 
         final Button button = findViewById(R.id.button_save);
         button.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
                 Intent replyIntent = new Intent();
-                if (TextUtils.isEmpty(mEditNomView.getText())) {
+                if ((TextUtils.isEmpty(mEditNomView.getText()) )
+                        || (TextUtils.isEmpty(mEditPrenomView.getText())) || (TextUtils.isEmpty(mEditNaissanceView.getText()))) {
                     setResult(RESULT_CANCELED, replyIntent);
                 } else {
                     String nomEtudiant = mEditNomView.getText().toString();
                     String prenomEtudiant = mEditPrenomView.getText().toString();
+                    String naissanceEtudiant = mEditNaissanceView.getText().toString();
+                    String adresseEtudiant = mEditAdresseView.getText().toString();
+                    String codePostalEtudiant = mEditCodePostalView.getText().toString();
+                    String villeEtudiant = mEditVilleView.getText().toString();
+                    String phoneEtudiant = mEditPhoneView.getText().toString();
+                    String courrielEtudiant = mEditCourrielView.getText().toString();
+                    String observationsEtudiant = mEditObservationsView.getText().toString();
 
                     //ajout pour sauvegarde
                     EtudiantRoomDatabase.databaseWriteExecutor.execute(() -> {
@@ -41,6 +64,13 @@ public class NewEtudiantActivity extends AppCompatActivity {
                         Etudiant etudiant = new Etudiant();
                         etudiant.setNomEtudiant(nomEtudiant);
                         etudiant.setPrenomEtudiant(prenomEtudiant);
+                        etudiant.setNaissanceEtudiant(naissanceEtudiant);
+                        etudiant.setAdresseEtudiant(adresseEtudiant);
+                        etudiant.setCodePostalEtudiant(codePostalEtudiant);
+                        etudiant.setVilleEtudiant(villeEtudiant);
+                        etudiant.setPhoneEtudiant(phoneEtudiant);
+                        etudiant.setCourrielEtudiant(courrielEtudiant);
+                        etudiant.setObservationsEtudiant(observationsEtudiant);
 
                         EtudiantRoomDatabase.getDatabase(getApplicationContext())
                                 .etudiantDao()

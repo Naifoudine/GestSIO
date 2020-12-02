@@ -15,11 +15,16 @@ public class EtudiantListAdapter extends RecyclerView.Adapter<EtudiantListAdapte
     class EtudiantViewHolder extends RecyclerView.ViewHolder {
         private final TextView nomItemView;
         private final TextView prenomItemView;
+        private final TextView naissanceItemView;
+
+
 
         private EtudiantViewHolder(View itemView) {
             super(itemView);
             nomItemView = itemView.findViewById(R.id.nomTextView);
             prenomItemView = itemView.findViewById(R.id.prenomTextView);
+            naissanceItemView = itemView.findViewById(R.id.naissanceItemView);
+
         }
     }
 
@@ -42,6 +47,8 @@ public class EtudiantListAdapter extends RecyclerView.Adapter<EtudiantListAdapte
             Etudiant current = mEtudiants.get(position);
             holder.nomItemView.setText(current.getNomEtudiant());
             holder.prenomItemView.setText(current.getPrenomEtudiant());
+            holder.naissanceItemView.setText(current.getNaissanceEtudiant());
+
 
         } else {
             // Covers the case of data not being ready yet.

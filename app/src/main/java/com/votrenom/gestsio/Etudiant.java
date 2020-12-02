@@ -18,6 +18,26 @@ public class Etudiant {
     @ColumnInfo(name = "prenomEtudiant")
     private String mPrenomEtudiant;
 
+    @ColumnInfo(name = "naissanceEtudiant")
+    private String mNaissanceEtudiant;
+
+    @ColumnInfo(name = "adresseEtudiant")
+    private String mAdresseEtudiant;
+
+    @ColumnInfo(name = "codePostalEtudiant")
+    private String mCodePostalEtudiant;
+
+    @ColumnInfo(name = "villeEtudiant")
+    private String mVilleEtudiant;
+
+    @ColumnInfo(name = "phoneEtudiant")
+    private String mPhoneEtudiant;
+
+    @ColumnInfo(name = "courrielEtudiant")
+    private String mCourrielEtudiant;
+
+    @ColumnInfo(name = "observationsEtudiant")
+    private String mObservationsEtudiant;
 
 
     public Long getIdEtudiant(){
@@ -42,6 +62,50 @@ public class Etudiant {
     public void setPrenomEtudiant(String prenomEtudiant) {
         this.mPrenomEtudiant = prenomEtudiant;
     }
+
+    public String getNaissanceEtudiant(){return this.mNaissanceEtudiant;}
+
+    public void setNaissanceEtudiant(String naissanceEtudiant) {
+        this.mNaissanceEtudiant = naissanceEtudiant;
+    }
+
+    public String getAdresseEtudiant(){return this.mAdresseEtudiant;}
+
+    public void setAdresseEtudiant(String adresseEtudiant) {
+        this.mAdresseEtudiant = adresseEtudiant;
+    }
+
+    public String getCodePostalEtudiant(){return this.mCodePostalEtudiant;}
+
+    public void setCodePostalEtudiant(String codePostalEtudiant) {
+        this.mCodePostalEtudiant = codePostalEtudiant;
+    }
+
+    public String getVilleEtudiant(){return this.mVilleEtudiant;}
+
+    public void setVilleEtudiant(String villeEtudiant) {
+        this.mVilleEtudiant = villeEtudiant;
+    }
+
+    public String getPhoneEtudiant(){return this.mPhoneEtudiant;}
+
+    public void setPhoneEtudiant(String phoneEtudiant) {
+        this.mPhoneEtudiant = phoneEtudiant;
+    }
+
+    public String getCourrielEtudiant(){return this.mCourrielEtudiant;}
+
+    public void setCourrielEtudiant(String courrielEtudiant) {
+        this.mCourrielEtudiant = courrielEtudiant;
+    }
+
+    public String getObservationsEtudiant(){return this.mObservationsEtudiant;}
+
+    public void setObservationsEtudiant(String observationsEtudiant) {
+        this.mObservationsEtudiant = observationsEtudiant;
+    }
+
+
 }
 
 
