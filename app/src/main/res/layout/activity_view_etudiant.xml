@@ -1,254 +1,107 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:layout_marginTop="16dp"
-    tools:context=".ViewEtudiantActivity">
+    android:layout_height="wrap_content">
 
-    <TextView
-        android:id="@+id/titre"
-        android:layout_width="wrap_content"
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" />
+    </ScrollView>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:gravity="clip_horizontal|top"
-        android:text="@string/consultation_etudiant"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:layout_marginBottom="3dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="7dp">
+            <TextView
+                android:id="@+id/nomEtudiant"
+                style="@style/text_view_main_style"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@android:color/holo_orange_light" />
+            <TextView
+                android:id="@+id/prenomEtudiant"
+                style="@style/text_view_style"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+            <TextView
+                android:id="@+id/naissanceEtudiant"
+                style="@style/text_view_style"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+            <TextView
+                android:id="@+id/optionEtudiant"
+                style="@style/text_view_style"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+            <TextView
+                android:id="@+id/adresseEtudiant"
+                style="@style/text_view_style"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+            <TextView
+                android:id="@+id/codePostalEtudiant"
+                style="@style/text_view_style"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+            <TextView
+                android:id="@+id/villeEtudiant"
+                style="@style/text_view_style"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+            <TextView
+                android:id="@+id/numéroDeTéléphoneEtudiant"
+                style="@style/text_view_style"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+            <TextView
+                android:id="@+id/courrielEtudiant"
+                style="@style/text_view_style"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+            <TextView
+                android:id="@+id/observationsEtudiant"
+                style="@style/text_view_style"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <Button
+                android:id="@+id/button_edit"
+                style="@style/button_view_style"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/colorPrimary"
+                android:text="@string/button_edit"
+
+                android:textAllCaps="true"
+                android:textColor="@color/buttonLabel"
+                android:textStyle="bold" />
+
+            <Button
+                android:id="@+id/button_delete"
+                style="@style/button_view_style"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@android:color/holo_red_dark"
+
+                android:text="@string/button_delete"
+                android:textAllCaps="true"
+                android:textColor="@color/buttonLabel"
+                android:textStyle="bold" />
 
 
-    <TextView
-        android:id="@+id/nom"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="top|center_horizontal"
-        android:layout_marginLeft="5dp"
-        android:layout_marginTop="20dp"
-        android:text="@string/nom"
-        android:textSize="18sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/titre"
-        app:layout_goneMarginTop="40dp" />
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+</RelativeLayout>
 
-    <TextView
-        android:id="@+id/nomEtudiant"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="top|center_horizontal"
-        android:layout_marginStart="8dp"
-        android:text="@string/nom_de_l_etudiant"
-        android:textSize="18sp"
-        app:layout_constraintBaseline_toBaselineOf="@id/nom"
-        app:layout_constraintStart_toEndOf="@id/nom"
-        app:layout_goneMarginTop="40dp" />
-
-
-    <TextView
-        android:id="@+id/prenom"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="top|center_horizontal"
-        android:layout_marginLeft="5dp"
-        android:layout_marginTop="40dp"
-        android:text="@string/prenom"
-        android:textSize="18sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/titre"
-        app:layout_goneMarginTop="40dp" />
-
-    <TextView
-        android:id="@+id/prenomEtudiant"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="top|center_horizontal"
-        android:layout_marginStart="8dp"
-        android:text="@string/prenom_de_l_etudiant"
-        android:textSize="18sp"
-        app:layout_constraintBaseline_toBaselineOf="@id/prenom"
-        app:layout_constraintStart_toEndOf="@id/prenom"
-        app:layout_goneMarginTop="40dp" />
-
-
-    <TextView
-        android:id="@+id/naissance"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="top|center_horizontal"
-        android:layout_marginLeft="5dp"
-        android:layout_marginTop="60dp"
-        android:text="@string/date_de_naissance"
-        android:textSize="18sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/titre"
-        app:layout_goneMarginTop="40dp" />
-
-    <TextView
-        android:id="@+id/NaissanceEtudiant"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="top|center_horizontal"
-        android:layout_marginStart="8dp"
-        android:text="@string/jj_mm_aaaa"
-        android:textSize="18sp"
-        app:layout_constraintBaseline_toBaselineOf="@id/naissance"
-        app:layout_constraintStart_toEndOf="@id/naissance"
-        app:layout_goneMarginTop="40dp" />
-
-
-    <TextView
-        android:id="@+id/adresse"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="top|center_horizontal"
-        android:layout_marginLeft="5dp"
-        android:layout_marginTop="80dp"
-        android:text="@string/adresse"
-        android:textSize="18sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/titre"
-        app:layout_goneMarginTop="40dp" />
-
-    <TextView
-        android:id="@+id/adresseEtudiant"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="top|center_horizontal"
-        android:layout_marginStart="8dp"
-        android:text="@string/adresse_de_l_etudiant"
-        android:textSize="18sp"
-        app:layout_constraintBaseline_toBaselineOf="@id/adresse"
-        app:layout_constraintStart_toEndOf="@id/adresse"
-        app:layout_goneMarginTop="40dp" />
-
-
-    <TextView
-        android:id="@+id/codePostal"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="top|center_horizontal"
-        android:layout_marginLeft="5dp"
-        android:layout_marginTop="100dp"
-        android:text="@string/code_postal"
-        android:textSize="18sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/titre"
-        app:layout_goneMarginTop="40dp" />
-
-    <TextView
-        android:id="@+id/codePostalEtudiant"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="top|center_horizontal"
-        android:layout_marginStart="8dp"
-        android:text="@string/son_code_postale"
-        android:textSize="18sp"
-        app:layout_constraintBaseline_toBaselineOf="@id/codePostal"
-        app:layout_constraintStart_toEndOf="@id/codePostal"
-        app:layout_goneMarginTop="40dp" />
-
-
-    <TextView
-        android:id="@+id/ville"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="top|center_horizontal"
-        android:layout_marginLeft="5dp"
-        android:layout_marginTop="120dp"
-        android:text="@string/ville"
-        android:textSize="18sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/titre"
-        app:layout_goneMarginTop="40dp" />
-
-    <TextView
-        android:id="@+id/villeEtudiant"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="top|center_horizontal"
-        android:layout_marginStart="8dp"
-        android:text="@string/ville_de_l_etudiant"
-        android:textSize="18sp"
-        app:layout_constraintBaseline_toBaselineOf="@id/ville"
-        app:layout_constraintStart_toEndOf="@id/ville"
-        app:layout_goneMarginTop="40dp" />
-
-    <TextView
-        android:id="@+id/numéroDeTéléphone"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="top|center_horizontal"
-        android:layout_marginLeft="5dp"
-        android:layout_marginTop="140dp"
-        android:text="@string/numero_de_telephone"
-        android:textSize="18sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/titre"
-        app:layout_goneMarginTop="40dp" />
-
-    <TextView
-        android:id="@+id/numéroDeTéléphoneEtudiant"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="top|center_horizontal"
-        android:layout_marginStart="8dp"
-        android:text="@string/num_de_l_etudiant"
-        android:textSize="18sp"
-        app:layout_constraintBaseline_toBaselineOf="@id/numéroDeTéléphone"
-        app:layout_constraintStart_toEndOf="@id/numéroDeTéléphone"
-        app:layout_goneMarginTop="40dp" />
-
-
-    <TextView
-        android:id="@+id/courriel"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="top|center_horizontal"
-        android:layout_marginLeft="5dp"
-        android:layout_marginTop="160dp"
-        android:text="@string/courriel"
-        android:textSize="18sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/titre"
-        app:layout_goneMarginTop="40dp" />
-
-    <TextView
-        android:id="@+id/courrielEtudiant"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="top|center_horizontal"
-        android:layout_marginStart="8dp"
-        android:text="@string/courriel_de_l_etudiant"
-        android:textSize="18sp"
-        app:layout_constraintBaseline_toBaselineOf="@id/courriel"
-        app:layout_constraintStart_toEndOf="@id/courriel"
-        app:layout_goneMarginTop="40dp" />
-
-    <TextView
-        android:id="@+id/observations"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="top|center_horizontal"
-        android:layout_marginLeft="5dp"
-        android:layout_marginTop="180dp"
-        android:text="@string/observations"
-        android:textSize="18sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/titre"
-        app:layout_goneMarginTop="40dp" />
-
-    <TextView
-        android:id="@+id/observationsEtudiant"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="top|center_horizontal"
-        android:layout_marginStart="8dp"
-        android:text="@string/commentaires_sur_l_etudiant"
-        android:textSize="18sp"
-        app:layout_constraintBaseline_toBaselineOf="@id/observations"
-        app:layout_constraintStart_toEndOf="@id/observations"
-        app:layout_goneMarginTop="40dp" />
-
-</androidx.constraintlayout.widget.ConstraintLayout>
 

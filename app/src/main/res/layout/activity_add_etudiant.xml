@@ -97,7 +97,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="top|center_horizontal"
             android:layout_marginStart="8dp"
-            android:inputType="date"
+            android:inputType="datetime"
             android:text="@string/jj_mm_aaaa"
             android:textSize="18sp"
             app:layout_constraintBaseline_toBaselineOf="@id/naissance"

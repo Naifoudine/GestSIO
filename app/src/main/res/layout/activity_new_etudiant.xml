@@ -51,9 +51,20 @@
             android:layout_margin="@dimen/small_padding"
             android:autofillHints=""
             android:fontFamily="sans-serif-light"
-
             android:hint="@string/hint_naissance"
-            android:inputType="date"
+            android:inputType="datetime"
+            android:minHeight="@dimen/min_height"
+            android:textSize="18sp" />
+
+        <EditText
+            android:id="@+id/edit_optionEtudiant"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/small_padding"
+            android:autofillHints=""
+            android:fontFamily="sans-serif-light"
+            android:hint="@string/hint_Option"
+            android:inputType="textCapCharacters|textAutoComplete"
             android:minHeight="@dimen/min_height"
             android:textSize="18sp" />
 

@@ -64,7 +64,8 @@ public class MainActivity extends AppCompatActivity {
         super.onActivityResult(requestCode, resultCode, data);
 
         if (requestCode == NEW_ETUDIANT_ACTIVITY_REQUEST_CODE && resultCode == RESULT_OK) {
-
+            Etudiant etudiant = (Etudiant) data.getExtras().getSerializable(NewEtudiantActivity.EXTRA_REPLY_NEW);
+            mEtudiantViewModel.insert(etudiant);
             Toast.makeText(
                     getApplicationContext(),
                     R.string.saved,

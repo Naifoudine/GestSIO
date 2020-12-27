@@ -4,9 +4,11 @@ import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
+import java.io.Serializable;
+
 
 @Entity(tableName = "table_etudiant")
-public class Etudiant {
+public class Etudiant implements Serializable {
 
     @PrimaryKey(autoGenerate = true)
     private Long mIdEtudiant;
@@ -20,6 +22,9 @@ public class Etudiant {
 
     @ColumnInfo(name = "naissanceEtudiant")
     private String mNaissanceEtudiant;
+
+    @ColumnInfo(name = "optionEtudiant")
+    private String mOptionEtudiant;
 
     @ColumnInfo(name = "adresseEtudiant")
     private String mAdresseEtudiant;
@@ -67,6 +72,12 @@ public class Etudiant {
 
     public void setNaissanceEtudiant(String naissanceEtudiant) {
         this.mNaissanceEtudiant = naissanceEtudiant;
+    }
+
+    public String getOptionEtudiant(){return this.mOptionEtudiant;}
+
+    public void setOptionEtudiant(String optionEtudiant) {
+        this.mOptionEtudiant = optionEtudiant;
     }
 
     public String getAdresseEtudiant(){return this.mAdresseEtudiant;}

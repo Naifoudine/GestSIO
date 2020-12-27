@@ -14,6 +14,7 @@ public class NewEtudiantActivity extends AppCompatActivity {
     private EditText mEditNomView;
     private EditText mEditPrenomView;
     private EditText mEditNaissanceView;
+    private EditText mEditOptionView;
     private EditText mEditAdresseView;
     private EditText mEditCodePostalView;
     private EditText mEditVilleView;
@@ -21,6 +22,8 @@ public class NewEtudiantActivity extends AppCompatActivity {
     private EditText mEditCourrielView;
     private EditText mEditObservationsView;
     private Etudiant etudiant;
+    public static final String EXTRA_REPLY_NEW = "com.votrenom.gestsio.etudiant";
+
 
 
     @Override
@@ -30,6 +33,7 @@ public class NewEtudiantActivity extends AppCompatActivity {
         mEditNomView = findViewById(R.id.edit_nom);
         mEditPrenomView = findViewById(R.id.edit_prenom);
         mEditNaissanceView = findViewById(R.id.edit_naissanceEtudiant);
+        mEditOptionView = findViewById(R.id.edit_optionEtudiant);
         mEditAdresseView = findViewById(R.id.edit_adresseEtudiant);
         mEditCodePostalView = findViewById(R.id.edit_codePostalEtudiant);
         mEditVilleView= findViewById(R.id.edit_villeEtudiant);
@@ -51,11 +55,17 @@ public class NewEtudiantActivity extends AppCompatActivity {
                     String prenomEtudiant = mEditPrenomView.getText().toString();
                     String naissanceEtudiant = mEditNaissanceView.getText().toString();
                     String adresseEtudiant = mEditAdresseView.getText().toString();
+                    String optionEtudiant = mEditOptionView.getText().toString();
                     String codePostalEtudiant = mEditCodePostalView.getText().toString();
                     String villeEtudiant = mEditVilleView.getText().toString();
                     String phoneEtudiant = mEditPhoneView.getText().toString();
                     String courrielEtudiant = mEditCourrielView.getText().toString();
                     String observationsEtudiant = mEditObservationsView.getText().toString();
+
+                    /**
+                     * TP5 : Nous allons ensuite supprimer les lignes
+                     * qui permettaient de sauvegarder l’étudiant dans la base de données,
+                     * supprimez les lignes suivantes :
 
                     //ajout pour sauvegarde
                     EtudiantRoomDatabase.databaseWriteExecutor.execute(() -> {
@@ -65,6 +75,7 @@ public class NewEtudiantActivity extends AppCompatActivity {
                         etudiant.setNomEtudiant(nomEtudiant);
                         etudiant.setPrenomEtudiant(prenomEtudiant);
                         etudiant.setNaissanceEtudiant(naissanceEtudiant);
+                        etudiant.setOptionEtudiant(optionEtudiant);
                         etudiant.setAdresseEtudiant(adresseEtudiant);
                         etudiant.setCodePostalEtudiant(codePostalEtudiant);
                         etudiant.setVilleEtudiant(villeEtudiant);
@@ -75,7 +86,8 @@ public class NewEtudiantActivity extends AppCompatActivity {
                         EtudiantRoomDatabase.getDatabase(getApplicationContext())
                                 .etudiantDao()
                                 .insert(etudiant);
-                    });
+                    });*/
+                    replyIntent.putExtra(EXTRA_REPLY_NEW, etudiant);
                     setResult(RESULT_OK, replyIntent);
                 }
                 finish();

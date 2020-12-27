@@ -37,5 +37,8 @@
     <string name="hint_telephone">Numéro de téléphone</string>
     <string name="hint_courriel">Courriel</string>
     <string name="hint_observation">Observation</string>
+    <string name="button_delete">Supprimer</string>
+    <string name="button_edit">Modifier</string>
+    <string name="hint_Option">SLAM ou SISR</string>
 
 </resources>

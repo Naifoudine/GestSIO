@@ -1,6 +1,7 @@
 package com.votrenom.gestsio;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,11 +12,17 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.util.List;
 
 public class EtudiantListAdapter extends RecyclerView.Adapter<EtudiantListAdapter.EtudiantViewHolder> {
+    private Context mCtx;
+    private final LayoutInflater mInflater;
+    private List<Etudiant> mEtudiants; // copie en cache
 
-    class EtudiantViewHolder extends RecyclerView.ViewHolder {
+
+    class EtudiantViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener  {
         private final TextView nomItemView;
         private final TextView prenomItemView;
         private final TextView naissanceItemView;
+        public static final int PHOTO_PICK_REQUEST = 2;
+
 
 
 
@@ -25,13 +32,24 @@ public class EtudiantListAdapter extends RecyclerView.Adapter<EtudiantListAdapte
             prenomItemView = itemView.findViewById(R.id.prenomTextView);
             naissanceItemView = itemView.findViewById(R.id.naissanceItemView);
 
+            itemView.setOnClickListener((View.OnClickListener) this);
+
+        }
+
+        @Override
+        public void onClick(View view) {
+            Etudiant etudiant = mEtudiants.get(getAdapterPosition());
+
+            Intent intent = new Intent(mCtx, ViewEtudiantActivity.class);
+            intent.putExtra("etudiant", etudiant);
+
+            mCtx.startActivity(intent);
         }
     }
 
-    private final LayoutInflater mInflater;
-    private List<Etudiant> mEtudiants; // copie en cache
 
     EtudiantListAdapter(Context context) {
+        this.mCtx= context;
         mInflater = LayoutInflater.from(context);
     }
 
