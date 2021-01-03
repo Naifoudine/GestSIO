@@ -78,6 +78,7 @@ public abstract class EtudiantRoomDatabase extends RoomDatabase {
                 Etudiant etudiant = new Etudiant();
                 etudiant.setNomEtudiant("MOHAMMED");
                 etudiant.setPrenomEtudiant("Ali");
+
                 dao.insert(etudiant);
 
             });

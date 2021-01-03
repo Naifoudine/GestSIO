@@ -1,5 +1,6 @@
 package com.votrenom.gestsio;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.view.LayoutInflater;
@@ -42,6 +43,7 @@ public class EtudiantListAdapter extends RecyclerView.Adapter<EtudiantListAdapte
 
             Intent intent = new Intent(mCtx, ViewEtudiantActivity.class);
             intent.putExtra("etudiant", etudiant);
+            //((Activity) mCtx).startActivityForResult(intent,MainActivity.UPDATE_ETUDIANT_ACTIVITY_REQUEST_CODE);
 
             mCtx.startActivity(intent);
         }

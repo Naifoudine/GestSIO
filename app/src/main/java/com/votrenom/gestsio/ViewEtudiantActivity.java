@@ -1,8 +1,8 @@
 package com.votrenom.gestsio;
 
-import androidx.appcompat.app.AppCompatActivity;
-
+import android.app.Activity;
 import android.app.AlertDialog;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.AsyncTask;
@@ -10,6 +10,10 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
+
+import java.util.List;
 
 public class ViewEtudiantActivity extends AppCompatActivity {
 
@@ -23,6 +27,8 @@ public class ViewEtudiantActivity extends AppCompatActivity {
     private TextView txtNuméroDeTéléphoneEtudiant;
     private TextView txtCourrielEtudiant;
     private TextView txtObservation;
+    private Context mContext;
+    private List<Etudiant> mEtudiants;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,23 +36,37 @@ public class ViewEtudiantActivity extends AppCompatActivity {
         setContentView(R.layout.activity_view_etudiant);
 
         // Obtention des références sur les composants
-        txtNomEtudiant = (TextView)findViewById(R.id.nomEtudiant);
+        txtNomEtudiant = findViewById(R.id.nomEtudiant);
 
         //txtNomEtudiant.setText("DUPOND");
 
-        txtPrenomEtudiant = (TextView)findViewById(R.id.prenomEtudiant);
-        txtDateDeNaissanceEtudiant = (TextView)findViewById(R.id.naissanceEtudiant);
-        txtOptionEtudiant = (TextView)findViewById(R.id.optionEtudiant);
-        txtAdresseEtudiant = (TextView)findViewById(R.id.adresseEtudiant);
-        txtCodePostalEtudiant = (TextView)findViewById(R.id.codePostalEtudiant);
-        txtVilleEtudiant = (TextView)findViewById(R.id.villeEtudiant);
-        txtNuméroDeTéléphoneEtudiant = (TextView)findViewById(R.id.numéroDeTéléphoneEtudiant);
-        txtCourrielEtudiant = (TextView)findViewById(R.id.courrielEtudiant);
-        txtObservation = (TextView)findViewById(R.id.observationsEtudiant);
+        txtPrenomEtudiant = findViewById(R.id.prenomEtudiant);
+        txtDateDeNaissanceEtudiant = findViewById(R.id.naissanceEtudiant);
+        txtOptionEtudiant = findViewById(R.id.optionEtudiant);
+        txtAdresseEtudiant = findViewById(R.id.adresseEtudiant);
+        txtCodePostalEtudiant = findViewById(R.id.codePostalEtudiant);
+        txtVilleEtudiant = findViewById(R.id.villeEtudiant);
+        txtNuméroDeTéléphoneEtudiant = findViewById(R.id.numéroDeTéléphoneEtudiant);
+        txtCourrielEtudiant = findViewById(R.id.courrielEtudiant);
+        txtObservation = findViewById(R.id.observationsEtudiant);
 
         final Etudiant etudiant = (Etudiant) getIntent().getSerializableExtra("etudiant");
 
+
         loadEtudiant(etudiant);
+
+        findViewById(R.id.button_edit).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                Intent intent = new Intent(getApplicationContext(), UpdateEtudiantActivity.class);
+                intent.putExtra("etudiant", etudiant);
+                //((Activity)mContext).startActivityForResult(intent,MainActivity.UPDATE_ETUDIANT_ACTIVITY_REQUEST_CODE);
+                intent.addFlags(Intent.FLAG_ACTIVITY_FORWARD_RESULT);
+                startActivity(intent);
+                finish();
+            }
+        });
 
         findViewById(R.id.button_delete).setOnClickListener(new View.OnClickListener() {
             @Override
@@ -76,7 +96,7 @@ public class ViewEtudiantActivity extends AppCompatActivity {
 
     private void loadEtudiant(Etudiant etudiant){
         txtNomEtudiant.setText(etudiant.getNomEtudiant());
-        txtPrenomEtudiant.setText(etudiant.getNomEtudiant());
+        txtPrenomEtudiant.setText(etudiant.getPrenomEtudiant());
         txtDateDeNaissanceEtudiant.setText(etudiant.getNaissanceEtudiant());
         txtOptionEtudiant.setText(etudiant.getOptionEtudiant());
         txtAdresseEtudiant.setText(etudiant.getAdresseEtudiant());
@@ -88,7 +108,7 @@ public class ViewEtudiantActivity extends AppCompatActivity {
     }
 
     private void deleteEtudiant(final Etudiant etudiant) {
-        class DeleteTask extends AsyncTask<Void, Void, Void> {
+        class DeleteEtudiant extends AsyncTask<Void, Void, Void> {
 
             @Override
             protected Void doInBackground(Void... voids) {
@@ -107,7 +127,7 @@ public class ViewEtudiantActivity extends AppCompatActivity {
             }
         }
 
-        DeleteTask dt = new DeleteTask();
+        DeleteEtudiant dt = new DeleteEtudiant();
         dt.execute();
 
     }

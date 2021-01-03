@@ -21,6 +21,7 @@ public class MainActivity extends AppCompatActivity {
     private int compteur;
     private EtudiantViewModel mEtudiantViewModel;
     public static final int NEW_ETUDIANT_ACTIVITY_REQUEST_CODE = 1;
+    public static final int UPDATE_ETUDIANT_ACTIVITY_REQUEST_CODE = 1;
 
 
 
