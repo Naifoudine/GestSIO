@@ -43,9 +43,9 @@ public class EtudiantListAdapter extends RecyclerView.Adapter<EtudiantListAdapte
 
             Intent intent = new Intent(mCtx, ViewEtudiantActivity.class);
             intent.putExtra("etudiant", etudiant);
-            //((Activity) mCtx).startActivityForResult(intent,MainActivity.UPDATE_ETUDIANT_ACTIVITY_REQUEST_CODE);
+            ((Activity) mCtx).startActivityForResult(intent,MainActivity.UPDATE_ETUDIANT_ACTIVITY_REQUEST_CODE);
 
-            mCtx.startActivity(intent);
+            //mCtx.startActivity(intent);
         }
     }
 

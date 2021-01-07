@@ -59,11 +59,11 @@ public class ViewEtudiantActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                Intent intent = new Intent(getApplicationContext(), UpdateEtudiantActivity.class);
+                Intent intent = new Intent(getApplicationContext(), UpdateEtudiantActivity2.class);
                 intent.putExtra("etudiant", etudiant);
-                //((Activity)mContext).startActivityForResult(intent,MainActivity.UPDATE_ETUDIANT_ACTIVITY_REQUEST_CODE);
+                ((Activity)mContext).startActivityForResult(intent,MainActivity.UPDATE_ETUDIANT_ACTIVITY_REQUEST_CODE);
                 intent.addFlags(Intent.FLAG_ACTIVITY_FORWARD_RESULT);
-                startActivity(intent);
+                //startActivity(intent);
                 finish();
             }
         });

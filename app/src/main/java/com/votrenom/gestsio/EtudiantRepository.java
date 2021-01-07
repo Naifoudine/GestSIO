@@ -1,12 +1,14 @@
 package com.votrenom.gestsio;
 
 import android.app.Application;
+import android.os.AsyncTask;
 
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.LiveData;
 
 import java.util.List;
 
-class EtudiantRepository {
+class EtudiantRepository extends AppCompatActivity {
 
     /**
      * Variables membres pour le DAO et la liste d'étudiants
@@ -51,5 +53,18 @@ class EtudiantRepository {
         EtudiantRoomDatabase.databaseWriteExecutor.execute(() -> {
             mEtudiantDao.insert(etudiant);
         });
+    }
+
+    void UpdateEtudiant(Etudiant etudiant) {
+        class DeleteEtudiant extends AsyncTask<Void, Void, Void> {
+
+            @Override
+            protected Void doInBackground(Void... voids) {
+                EtudiantRoomDatabase.getDatabase(getApplicationContext())
+                        .etudiantDao()
+                        .update(etudiant);
+                return null;
+            }
+        }
     }
 }

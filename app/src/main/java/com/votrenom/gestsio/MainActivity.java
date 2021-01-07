@@ -21,7 +21,7 @@ public class MainActivity extends AppCompatActivity {
     private int compteur;
     private EtudiantViewModel mEtudiantViewModel;
     public static final int NEW_ETUDIANT_ACTIVITY_REQUEST_CODE = 1;
-    public static final int UPDATE_ETUDIANT_ACTIVITY_REQUEST_CODE = 1;
+    public static final int UPDATE_ETUDIANT_ACTIVITY_REQUEST_CODE = 2;
 
 
 
@@ -72,6 +72,13 @@ public class MainActivity extends AppCompatActivity {
                     R.string.saved,
                     Toast.LENGTH_LONG).show();
 
+        } else if (requestCode == UPDATE_ETUDIANT_ACTIVITY_REQUEST_CODE && resultCode == RESULT_OK) {
+            Etudiant etudiant = (Etudiant) data.getExtras().getSerializable(UpdateEtudiantActivity.EXTRA_REPLY_UPDATE);
+            mEtudiantViewModel.insert(etudiant);
+            Toast.makeText(
+                    getApplicationContext(),
+                    R.string.saved,
+                    Toast.LENGTH_LONG).show();
         } else {
             Toast.makeText(
                     getApplicationContext(),

@@ -32,6 +32,9 @@ import static com.votrenom.gestsio.NewEtudiantActivity.EXTRA_REPLY_NEW;
      private EditText mEditCourrielView;
      private EditText mEditObservationsViews;
      private Etudiant etudiant;
+     private Bundle bundle;
+     public static final String EXTRA_REPLY_UPDATE = "com.votrenom.gestsio.etudiant";
+
 
 
 
@@ -64,9 +67,25 @@ import static com.votrenom.gestsio.NewEtudiantActivity.EXTRA_REPLY_NEW;
 
         loadEtudiant(etudiant);
 
+         /*bundle = getIntent().getExtras();
+
+         if (bundle != null) {
+             final Etudiant etudiant = (Etudiant) getIntent().getSerializableExtra("etudiant");
+         }
+
+         noteModel = ViewModelProviders.of(this).get(EditNoteViewModel.class);
+         note = noteModel.getNote(noteId);
+         note.observe(this, new Observer<Note>() {
+             @Override
+             public void onChanged(@Nullable Note note) {
+                 etNote.setText(note.getNote());
+             }
+         });
+     }*/
 
 
-        //final Button button = findViewById(R.id.button_save);
+
+         //final Button button = findViewById(R.id.button_save);
          findViewById(R.id.button_save).setOnClickListener(new View.OnClickListener() {
              @Override
              public void onClick(View view) {

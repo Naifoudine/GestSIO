@@ -1,16 +1,29 @@
 package com.votrenom.gestsio;
 
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.lifecycle.Observer;
+import androidx.lifecycle.ViewModel;
+import androidx.lifecycle.ViewModelProviders;
 
+import android.annotation.SuppressLint;
+import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
+import android.widget.Toast;
 
-public class NewEtudiantActivity extends AppCompatActivity {
+import java.util.List;
 
+import static com.votrenom.gestsio.NewEtudiantActivity.EXTRA_REPLY_NEW;
+
+public class UpdateEtudiantActivity2 extends AppCompatActivity{
     private EditText mEditNomView;
     private EditText mEditPrenomView;
     private EditText mEditNaissanceView;
@@ -21,9 +34,11 @@ public class NewEtudiantActivity extends AppCompatActivity {
     private EditText mEditPhoneView;
     private EditText mEditCourrielView;
     private EditText mEditObservationsView;
-    private Etudiant etudiant;
-    public static final String EXTRA_REPLY_NEW = "com.votrenom.gestsio.etudiant";
+    private Bundle bundle;
 
+    private Etudiant etudiant;
+    private String etudiantId;
+    private ViewModel etudiantModel;
 
 
     @Override
@@ -41,14 +56,30 @@ public class NewEtudiantActivity extends AppCompatActivity {
         mEditCourrielView = findViewById(R.id.edit_courrielEtudiant);
         mEditObservationsView = findViewById(R.id.edit_observationsEtudiant);
 
+        final Etudiant etudiant = (Etudiant) getIntent().getSerializableExtra("etudiant");
+
+
+       /* bundle = etudiant;
+
+
+        if (bundle != null) {
+            etudiantId = bundle.getString("etudiant");
+        }
+        /*etudiantModel = ViewModelProviders.of(this).get(EtudiantViewModel.class);
+        etudiant = etudiantModel.get(noteId);
+        note.observe(this, new Observer<Etudiant>() {
+            @Override
+            public void onChanged(@Nullable Etudiant etudiant) {
+                etNote.setText(note.getNote());
+            }
+        });*/
 
 
         final Button button = findViewById(R.id.button_save);
         button.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
                 Intent replyIntent = new Intent();
-                if ((TextUtils.isEmpty(mEditNomView.getText()) )
-                        || (TextUtils.isEmpty(mEditPrenomView.getText())) || (TextUtils.isEmpty(mEditNaissanceView.getText()))) {
+                if (TextUtils.isEmpty(mEditNomView.getText())) {
                     setResult(RESULT_CANCELED, replyIntent);
                 } else {
                     String nomEtudiant = mEditNomView.getText().toString();
@@ -62,15 +93,8 @@ public class NewEtudiantActivity extends AppCompatActivity {
                     String courrielEtudiant = mEditCourrielView.getText().toString();
                     String observationsEtudiant = mEditObservationsView.getText().toString();
 
-                    /**
-                     * TP5 : Nous allons ensuite supprimer les lignes
-                     * qui permettaient de sauvegarder l’étudiant dans la base de données,
-                     * supprimez les lignes suivantes :
-
                     //ajout pour sauvegarde
-                    EtudiantRoomDatabase.databaseWriteExecutor.execute(() -> {*/
-                        // Populate the database in the background.
-                        // If you want to start with more words, just add them.
+
                         Etudiant etudiant = new Etudiant();
                         etudiant.setNomEtudiant(nomEtudiant);
                         etudiant.setPrenomEtudiant(prenomEtudiant);
@@ -83,11 +107,7 @@ public class NewEtudiantActivity extends AppCompatActivity {
                         etudiant.setCourrielEtudiant(courrielEtudiant);
                         etudiant.setObservationsEtudiant(observationsEtudiant);
 
-                        /**EtudiantRoomDatabase.getDatabase(getApplicationContext())
-                                .etudiantDao()
-                                .insert(etudiant);
-                    });*/
-                    replyIntent.putExtra(EXTRA_REPLY_NEW, etudiant);
+                     
                     setResult(RESULT_OK, replyIntent);
                 }
                 finish();
@@ -95,3 +115,4 @@ public class NewEtudiantActivity extends AppCompatActivity {
         });
     }
 }
+
