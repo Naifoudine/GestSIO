@@ -55,7 +55,72 @@ class EtudiantRepository extends AppCompatActivity {
         });
     }
 
-    void UpdateEtudiant(Etudiant etudiant) {
+    /*      TP5      */
+
+
+// deleteWordAsyncTask en tant que classe interne.
+    private static class deleteEtudiantAsyncTask extends AsyncTask<Etudiant, Void, Void> {
+        private EtudiantDao mAsyncTaskDao;
+
+        deleteEtudiantAsyncTask(EtudiantDao dao) {
+            mAsyncTaskDao = dao;
+        }
+
+        /**
+         * doInBackground () pour supprimer un mot en appelant deleteEtudiant ()
+         * sur le DAO
+         * @param params
+         * @return
+         */
+        @Override
+        protected Void doInBackground(final Etudiant... params) {
+            mAsyncTaskDao.deleteEtudiant(params[0]);
+            return null;
+        }
+    }
+
+
+    private static class updateEtudiantAsyncTask extends AsyncTask<Etudiant, Void, Void> {
+        private EtudiantDao mAsyncTaskDao;
+
+        updateEtudiantAsyncTask(EtudiantDao dao) {
+            mAsyncTaskDao = dao;
+        }
+
+        /**
+         * doInBackground () pour mettre à jour un mot en appelant deleteEtudiant ()
+         * sur le DAO
+         * @param params
+         * @return
+         */
+        @Override
+        protected Void doInBackground(final Etudiant... params) {
+            mAsyncTaskDao.update(params[0]);
+            return null;
+        }
+    }
+
+
+
+    /* bof */
+
+    /**
+     * Pointe vers EtudiantViewModel
+     * @param etudiant
+     */
+    public void deleteEtudiant(Etudiant etudiant)  {
+        new deleteEtudiantAsyncTask(mEtudiantDao).execute(etudiant);
+    }
+    /**
+     * Pointe vers EtudiantViewModel
+     * @param etudiant
+     */
+    public void updateEtudiant(Etudiant etudiant)  {
+        new updateEtudiantAsyncTask(mEtudiantDao).execute(etudiant);
+    }
+    /*      FIN TP5      */
+
+    /*void UpdateEtudiant(Etudiant etudiant) {
         class DeleteEtudiant extends AsyncTask<Void, Void, Void> {
 
             @Override
@@ -66,5 +131,6 @@ class EtudiantRepository extends AppCompatActivity {
                 return null;
             }
         }
-    }
+    }*/
+
 }

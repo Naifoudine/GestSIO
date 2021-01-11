@@ -43,4 +43,22 @@ public class EtudiantViewModel extends AndroidViewModel {
     void insert(Etudiant etudiant) {
         mRepository.insert(etudiant);
     }
+
+    /*          TP5         */
+
+    /**
+     * Pour rendre la méthode deleteEtudiant() disponible pour d'autres classes de l'application,
+     * en particulier MainActivity
+     * @param etudiant
+     */
+    public void deleteEtudiant(Etudiant etudiant) {
+        mRepository.deleteEtudiant(etudiant);
+
+    }
+
+    public void updateEtudiant(Etudiant etudiant) {
+        mRepository.updateEtudiant(etudiant);
+    }
+    /*          FIN TP5         */
+
 }

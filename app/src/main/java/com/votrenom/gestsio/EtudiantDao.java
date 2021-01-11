@@ -25,6 +25,21 @@ public interface EtudiantDao {
     @Delete
     void delete(Etudiant etudiant);
 
+    /*      TP5    */
+    /**
+     *  supprime une seule ligne, l’annotation est tout ce qui est nécessaire
+     *  pour supprimer l'etudiant de la base de données
+     * @param etudiant
+     */
+    @Delete
+    void deleteEtudiant(Etudiant etudiant);
+
+    @Update
+    void updateEtudiant(Etudiant etudiant);
+
+
+    /*      Fin TP5     */
+
 
     //Exemple de requêtes :
 

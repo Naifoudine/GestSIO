@@ -20,10 +20,12 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.List;
+import static com.votrenom.gestsio.MainActivity.UPDATE_ETUDIANT_ACTIVITY_REQUEST_CODE;
 
 import static com.votrenom.gestsio.NewEtudiantActivity.EXTRA_REPLY_NEW;
 
 public class UpdateEtudiantActivity2 extends AppCompatActivity{
+    public static final String EXTRA_REPLY_UPDATE = "com.votrenom.gestsio.etudiant";
     private EditText mEditNomView;
     private EditText mEditPrenomView;
     private EditText mEditNaissanceView;
@@ -56,8 +58,9 @@ public class UpdateEtudiantActivity2 extends AppCompatActivity{
         mEditCourrielView = findViewById(R.id.edit_courrielEtudiant);
         mEditObservationsView = findViewById(R.id.edit_observationsEtudiant);
 
-        final Etudiant etudiant = (Etudiant) getIntent().getSerializableExtra("etudiant");
+        //final Etudiant etudiant = (Etudiant) getIntent().getSerializableExtra("etudiant");
 
+        loadEtudiant(etudiant);
 
        /* bundle = etudiant;
 
@@ -73,6 +76,34 @@ public class UpdateEtudiantActivity2 extends AppCompatActivity{
                 etNote.setText(note.getNote());
             }
         });*/
+//10/01
+       /*Intent intent = getIntent();
+       String message = intent.getStringExtra(ViewEtudiantActivity.EXTRA_MESSAGE);
+       mEditNomView.setText(message);*/
+
+        /*Bundle b = getIntent().getExtras();
+        String s = b.getString("EXTRA_MESSAGE");
+        mEditNomView.setText(s);*/
+
+
+       /*Etudiant etudiant1 = (Etudiant) intent.getSerializableExtra("etudiant");
+        Etudiant  = intent.getStringExtra(ViewEtudiantActivity.Ex);*/
+        /*final Bundle extras = getIntent().getExtras();
+
+        // If we are passed content, fill it in for the user to edit.
+        if (extras != null) {
+            Etudiant etudiant = extras.getSerializable(EXTRA_DATA_UPDATE_WORD, "");
+            if (!etudiant.isEmpty()) {
+                mEditWordView.setText(word);
+                mEditWordView.setSelection(word.length());
+                mEditWordView.requestFocus();
+            }
+        } // Otherwise, start with empty fields.*/
+
+        //17: 12
+        if(getIntent().getExtras() != null) {
+            Etudiant etudiant = getIntent().getParcelableExtra("etudiant");
+        }
 
 
         final Button button = findViewById(R.id.button_save);
@@ -107,12 +138,28 @@ public class UpdateEtudiantActivity2 extends AppCompatActivity{
                         etudiant.setCourrielEtudiant(courrielEtudiant);
                         etudiant.setObservationsEtudiant(observationsEtudiant);
 
-                     
+                    replyIntent.putExtra(EXTRA_REPLY_UPDATE, etudiant);
+                    startActivityForResult(replyIntent, UPDATE_ETUDIANT_ACTIVITY_REQUEST_CODE);
                     setResult(RESULT_OK, replyIntent);
                 }
                 finish();
             }
         });
+
+
+    }
+
+    private void loadEtudiant(Etudiant etudiant){
+        mEditNomView.setText(etudiant.getNomEtudiant());
+        mEditPrenomView.setText(etudiant.getPrenomEtudiant());
+        mEditNaissanceView.setText(etudiant.getNaissanceEtudiant());
+        mEditOptionView.setText(etudiant.getOptionEtudiant());
+        mEditAdresseView.setText(etudiant.getAdresseEtudiant());
+        mEditCodePostalView.setText(etudiant.getCodePostalEtudiant());
+        mEditVilleView.setText(etudiant.getVilleEtudiant());
+        mEditPhoneView.setText(etudiant.getPhoneEtudiant());
+        mEditCourrielView.setText(etudiant.getCourrielEtudiant());
+        mEditObservationsView.setText(etudiant.getObservationsEtudiant());
     }
 }
 

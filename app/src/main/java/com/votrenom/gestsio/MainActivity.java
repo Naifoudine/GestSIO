@@ -22,6 +22,7 @@ public class MainActivity extends AppCompatActivity {
     private EtudiantViewModel mEtudiantViewModel;
     public static final int NEW_ETUDIANT_ACTIVITY_REQUEST_CODE = 1;
     public static final int UPDATE_ETUDIANT_ACTIVITY_REQUEST_CODE = 2;
+    public static final int DELETE_ETUDIANT_ACTIVITY_REQUEST_CODE =3;
 
 
 
@@ -72,14 +73,27 @@ public class MainActivity extends AppCompatActivity {
                     R.string.saved,
                     Toast.LENGTH_LONG).show();
 
+
         } else if (requestCode == UPDATE_ETUDIANT_ACTIVITY_REQUEST_CODE && resultCode == RESULT_OK) {
-            Etudiant etudiant = (Etudiant) data.getExtras().getSerializable(UpdateEtudiantActivity.EXTRA_REPLY_UPDATE);
-            mEtudiantViewModel.insert(etudiant);
+            //Etudiant etudiant = (Etudiant) data.getExtras().getSerializable(UpdateEtudiantActivity.EXTRA_REPLY_UPDATE);
+            Etudiant etudiant = (Etudiant) data.getExtras().getSerializable(UpdateEtudiantActivity2.EXTRA_REPLY_UPDATE);
+            mEtudiantViewModel.updateEtudiant(etudiant);
             Toast.makeText(
                     getApplicationContext(),
-                    R.string.saved,
+                    R.string.updated,
                     Toast.LENGTH_LONG).show();
-        } else {
+
+
+        } /*else if (requestCode == DELETE_ETUDIANT_ACTIVITY_REQUEST_CODE && resultCode == RESULT_OK) {
+            //Etudiant etudiant = (Etudiant) data.getExtras().getSerializable(ViewEtudiantActivity.EXTRA_REPLY_DELETE);
+            Etudiant etudiant = (Etudiant) data.getExtras().getSerializable(ViewEtudiantActivity.EXTRA_REPLY_DELETE);
+            mEtudiantViewModel.deleteEtudiant(etudiant);
+            Toast.makeText(
+                    getApplicationContext(),
+                    R.string.deleted,
+                    Toast.LENGTH_LONG).show();
+        }*/
+        else {
             Toast.makeText(
                     getApplicationContext(),
                     R.string.not_saved,
