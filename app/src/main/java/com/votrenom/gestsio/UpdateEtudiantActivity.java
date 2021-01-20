@@ -17,7 +17,6 @@ import android.widget.Toast;
 
 import java.util.List;
 
-import static com.votrenom.gestsio.NewEtudiantActivity.EXTRA_REPLY_NEW;
 
  public class UpdateEtudiantActivity extends AppCompatActivity {
 

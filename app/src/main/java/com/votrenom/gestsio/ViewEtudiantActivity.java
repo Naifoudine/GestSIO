@@ -75,51 +75,14 @@ public class ViewEtudiantActivity extends AppCompatActivity {
         buttonEdit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
-                /*Intent intent = new Intent(getApplicationContext(), UpdateEtudiantActivity2.class);
-                intent.putExtra("etudiant", etudiant);
-                ((Activity)mContext).startActivityForResult(intent,MainActivity.UPDATE_ETUDIANT_ACTIVITY_REQUEST_CODE);
-                intent.addFlags(Intent.FLAG_ACTIVITY_FORWARD_RESULT);
-                //startActivity(intent);
-                finish();*/
-
-                /*Intent intent = new Intent(getApplicationContext(), UpdateEtudiantActivity2.class);
-                //Etudiant message = etudiant.getIdEtudiant().toString();
-                intent.putExtra(EXTRA_MESSAGE, etudiant);
-                //((Activity)mContext).startActivityForResult(intent,MainActivity.UPDATE_ETUDIANT_ACTIVITY_REQUEST_CODE);
-                 intent.addFlags(Intent.FLAG_ACTIVITY_FORWARD_RESULT);
-                startActivity(intent);
-                finish();*/
-
-                /*Intent intent = new Intent(mContext, UpdateEtudiantActivity2.class);
-                //String message = txtNomEtudiant.getText().toString();
-                //String message = txtNomEtudiant.getText().toString();
-                Bundle b = new Bundle();
-                b.putString("EXTRA_MESSAGE", "message");
-                intent.putExtras(b);
-                intent.addFlags(Intent.FLAG_ACTIVITY_FORWARD_RESULT);
-                //startActivityForResult(intent, TEXT_REQUEST);
-                mContext.startActivity(intent);
-                finish();*/
-
-                //V.3
-                /*final Etudiant etudiant = (Etudiant)getIntent().getSerializableExtra("etudiant");
-                Intent intent = new Intent(ViewEtudiantActivity.this, UpdateEtudiantActivity2.class);
-                intent.putExtra("etudiant", etudiant);
-                intent.addFlags(Intent.FLAG_ACTIVITY_FORWARD_RESULT);
-                startActivity(intent);
-                finish();*/
-
                 launchUpdateEtudiantActivity(etudiant);
-
-
             }
         });
 
         findViewById(R.id.button_delete).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                final Bundle extras = getIntent().getExtras();
+
 
 
                 AlertDialog.Builder builder = new AlertDialog.Builder(ViewEtudiantActivity.this);
@@ -127,7 +90,7 @@ public class ViewEtudiantActivity extends AppCompatActivity {
                 builder.setPositiveButton("OUI", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
-                        /*Intent replyIntent = new Intent();
+                        Intent replyIntent = new Intent();
                        // Etudiant etudiant = mEtu;
 
                         replyIntent.putExtra(EXTRA_REPLY_DELETE, etudiant);
@@ -138,7 +101,9 @@ public class ViewEtudiantActivity extends AppCompatActivity {
 
                         //mEtudiantViewModel.deleteEtudiant(etudiant);
                         //deleteEtudiant(etudiant);
-                        sendDeleteEtudiantIntent(etudiant);
+                        if (1 + 1 != 2){
+                            setResult(RESULT_CANCELED, replyIntent);
+                        }else {sendDeleteEtudiantIntent(etudiant);}
                     }
                 });
 
@@ -175,7 +140,7 @@ public class ViewEtudiantActivity extends AppCompatActivity {
         //intent.putExtra(EXTRA_DATA_ID, word.getId());
         startActivityForResult(intent, UPDATE_ETUDIANT_ACTIVITY_REQUEST_CODE);*/
 
-        Intent intent = new Intent(this, UpdateEtudiantActivity.class);
+        Intent intent = new Intent(ViewEtudiantActivity.this, UpdateEtudiantActivity.class);
         intent.putExtra("etudiant", etudiant);
         intent.addFlags(Intent.FLAG_ACTIVITY_FORWARD_RESULT);
         startActivity(intent);
@@ -195,11 +160,11 @@ public class ViewEtudiantActivity extends AppCompatActivity {
         startActivity(intent);
         finish();*/
 
-        Intent replyIntent = new Intent(this, MainActivity.class);
+        Intent replyIntent = new Intent(getApplicationContext(), MainActivity.class);
         replyIntent.putExtra(EXTRA_REPLY_DELETE, etudiant);
         setResult(RESULT_OK, replyIntent);
-        startActivityForResult(replyIntent, DELETE_ETUDIANT_ACTIVITY_REQUEST_CODE);
-        finish();
+        startActivityForResult(replyIntent, MainActivity.DELETE_ETUDIANT_ACTIVITY_REQUEST_CODE);
+        //finish();
     }
 
     /*private void deleteEtudiant(final Etudiant etudiant) {

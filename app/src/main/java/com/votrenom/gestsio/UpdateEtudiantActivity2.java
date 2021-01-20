@@ -22,7 +22,6 @@ import android.widget.Toast;
 import java.util.List;
 import static com.votrenom.gestsio.MainActivity.UPDATE_ETUDIANT_ACTIVITY_REQUEST_CODE;
 
-import static com.votrenom.gestsio.NewEtudiantActivity.EXTRA_REPLY_NEW;
 
 public class UpdateEtudiantActivity2 extends AppCompatActivity{
     public static final String EXTRA_REPLY_UPDATE = "com.votrenom.gestsio.etudiant";
@@ -60,7 +59,7 @@ public class UpdateEtudiantActivity2 extends AppCompatActivity{
 
         //final Etudiant etudiant = (Etudiant) getIntent().getSerializableExtra("etudiant");
 
-        loadEtudiant(etudiant);
+        /*loadEtudiant(etudiant);
 
        /* bundle = etudiant;
 
@@ -110,7 +109,8 @@ public class UpdateEtudiantActivity2 extends AppCompatActivity{
         button.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
                 Intent replyIntent = new Intent();
-                if (TextUtils.isEmpty(mEditNomView.getText())) {
+                if ((TextUtils.isEmpty(mEditNomView.getText()) )
+                        || (TextUtils.isEmpty(mEditPrenomView.getText())) || (TextUtils.isEmpty(mEditNaissanceView.getText()))) {
                     setResult(RESULT_CANCELED, replyIntent);
                 } else {
                     String nomEtudiant = mEditNomView.getText().toString();
@@ -139,7 +139,7 @@ public class UpdateEtudiantActivity2 extends AppCompatActivity{
                         etudiant.setObservationsEtudiant(observationsEtudiant);
 
                     replyIntent.putExtra(EXTRA_REPLY_UPDATE, etudiant);
-                    startActivityForResult(replyIntent, UPDATE_ETUDIANT_ACTIVITY_REQUEST_CODE);
+                    //startActivityForResult(replyIntent, UPDATE_ETUDIANT_ACTIVITY_REQUEST_CODE);
                     setResult(RESULT_OK, replyIntent);
                 }
                 finish();
@@ -149,7 +149,7 @@ public class UpdateEtudiantActivity2 extends AppCompatActivity{
 
     }
 
-    private void loadEtudiant(Etudiant etudiant){
+    /*private void loadEtudiant(Etudiant etudiant){
         mEditNomView.setText(etudiant.getNomEtudiant());
         mEditPrenomView.setText(etudiant.getPrenomEtudiant());
         mEditNaissanceView.setText(etudiant.getNaissanceEtudiant());
@@ -160,6 +160,6 @@ public class UpdateEtudiantActivity2 extends AppCompatActivity{
         mEditPhoneView.setText(etudiant.getPhoneEtudiant());
         mEditCourrielView.setText(etudiant.getCourrielEtudiant());
         mEditObservationsView.setText(etudiant.getObservationsEtudiant());
-    }
+    }*/
 }
 

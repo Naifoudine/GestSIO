@@ -84,7 +84,7 @@ public class MainActivity extends AppCompatActivity {
                     Toast.LENGTH_LONG).show();
 
 
-        } /*else if (requestCode == DELETE_ETUDIANT_ACTIVITY_REQUEST_CODE && resultCode == RESULT_OK) {
+        } else if (requestCode == DELETE_ETUDIANT_ACTIVITY_REQUEST_CODE && resultCode == RESULT_OK) {
             //Etudiant etudiant = (Etudiant) data.getExtras().getSerializable(ViewEtudiantActivity.EXTRA_REPLY_DELETE);
             Etudiant etudiant = (Etudiant) data.getExtras().getSerializable(ViewEtudiantActivity.EXTRA_REPLY_DELETE);
             mEtudiantViewModel.deleteEtudiant(etudiant);
@@ -92,7 +92,7 @@ public class MainActivity extends AppCompatActivity {
                     getApplicationContext(),
                     R.string.deleted,
                     Toast.LENGTH_LONG).show();
-        }*/
+        }
         else {
             Toast.makeText(
                     getApplicationContext(),
@@ -100,4 +100,5 @@ public class MainActivity extends AppCompatActivity {
                     Toast.LENGTH_LONG).show();
         }
     }
+
 }
