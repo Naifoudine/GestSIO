@@ -46,6 +46,7 @@ public class UpdateEtudiantActivity2 extends AppCompatActivity{
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_new_etudiant);
+
         mEditNomView = findViewById(R.id.edit_nom);
         mEditPrenomView = findViewById(R.id.edit_prenom);
         mEditNaissanceView = findViewById(R.id.edit_naissanceEtudiant);
@@ -100,11 +101,13 @@ public class UpdateEtudiantActivity2 extends AppCompatActivity{
         } // Otherwise, start with empty fields.*/
 
         //17: 12
-        if(getIntent().getExtras() != null) {
-            Etudiant etudiant = getIntent().getParcelableExtra("etudiant");
-        }
+
+        final Etudiant etudiant = (Etudiant) getIntent().getSerializableExtra("etudiant");
+
+        loadEtudiant(etudiant);
 
 
+        // 21/01/21
         final Button button = findViewById(R.id.button_save);
         button.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
@@ -124,22 +127,32 @@ public class UpdateEtudiantActivity2 extends AppCompatActivity{
                     String courrielEtudiant = mEditCourrielView.getText().toString();
                     String observationsEtudiant = mEditObservationsView.getText().toString();
 
-                    //ajout pour sauvegarde
+                    /**
+                     * TP5 : Nous allons ensuite supprimer les lignes
+                     * qui permettaient de sauvegarder l’étudiant dans la base de données,
+                     * supprimez les lignes suivantes :
 
-                        Etudiant etudiant = new Etudiant();
-                        etudiant.setNomEtudiant(nomEtudiant);
-                        etudiant.setPrenomEtudiant(prenomEtudiant);
-                        etudiant.setNaissanceEtudiant(naissanceEtudiant);
-                        etudiant.setOptionEtudiant(optionEtudiant);
-                        etudiant.setAdresseEtudiant(adresseEtudiant);
-                        etudiant.setCodePostalEtudiant(codePostalEtudiant);
-                        etudiant.setVilleEtudiant(villeEtudiant);
-                        etudiant.setPhoneEtudiant(phoneEtudiant);
-                        etudiant.setCourrielEtudiant(courrielEtudiant);
-                        etudiant.setObservationsEtudiant(observationsEtudiant);
+                     //ajout pour sauvegarde
+                     EtudiantRoomDatabase.databaseWriteExecutor.execute(() -> {*/
+                    // Populate the database in the background.
+                    // If you want to start with more words, just add them.
+                    Etudiant etudiant = new Etudiant();
+                    etudiant.setNomEtudiant(nomEtudiant);
+                    etudiant.setPrenomEtudiant(prenomEtudiant);
+                    etudiant.setNaissanceEtudiant(naissanceEtudiant);
+                    etudiant.setOptionEtudiant(optionEtudiant);
+                    etudiant.setAdresseEtudiant(adresseEtudiant);
+                    etudiant.setCodePostalEtudiant(codePostalEtudiant);
+                    etudiant.setVilleEtudiant(villeEtudiant);
+                    etudiant.setPhoneEtudiant(phoneEtudiant);
+                    etudiant.setCourrielEtudiant(courrielEtudiant);
+                    etudiant.setObservationsEtudiant(observationsEtudiant);
 
+                    /**EtudiantRoomDatabase.getDatabase(getApplicationContext())
+                     .etudiantDao()
+                     .insert(etudiant);
+                     });*/
                     replyIntent.putExtra(EXTRA_REPLY_UPDATE, etudiant);
-                    //startActivityForResult(replyIntent, UPDATE_ETUDIANT_ACTIVITY_REQUEST_CODE);
                     setResult(RESULT_OK, replyIntent);
                 }
                 finish();
@@ -149,7 +162,8 @@ public class UpdateEtudiantActivity2 extends AppCompatActivity{
 
     }
 
-    /*private void loadEtudiant(Etudiant etudiant){
+    private void loadEtudiant(Etudiant etudiant){
+        etudiant.getIdEtudiant();
         mEditNomView.setText(etudiant.getNomEtudiant());
         mEditPrenomView.setText(etudiant.getPrenomEtudiant());
         mEditNaissanceView.setText(etudiant.getNaissanceEtudiant());
@@ -160,6 +174,6 @@ public class UpdateEtudiantActivity2 extends AppCompatActivity{
         mEditPhoneView.setText(etudiant.getPhoneEtudiant());
         mEditCourrielView.setText(etudiant.getCourrielEtudiant());
         mEditObservationsView.setText(etudiant.getObservationsEtudiant());
-    }*/
+    }
 }
 

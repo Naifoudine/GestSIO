@@ -44,7 +44,7 @@ import java.util.List;
      @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_update_etudiant);
+        //setContentView(R.layout.activity_update_etudiant);
 
 
         // Obtention des références sur les composants
