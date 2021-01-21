@@ -51,14 +51,23 @@ public class EtudiantViewModel extends AndroidViewModel {
      * en particulier MainActivity
      * @param etudiant
      */
-    public void deleteEtudiant(Etudiant etudiant) {
+    // 21/01/21
+    public void delete(Etudiant etudiant) {
+        mRepository.delete(etudiant);
+
+    }
+    public void update(Etudiant etudiant) {
+        mRepository.update(etudiant);
+
+    }
+   /* public void deleteEtudiant(Etudiant etudiant) {
         mRepository.deleteEtudiant(etudiant);
 
     }
 
     public void updateEtudiant(Etudiant etudiant) {
         mRepository.updateEtudiant(etudiant);
-    }
+    }*/
     /*          FIN TP5         */
 
 }
